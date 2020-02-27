@@ -1,0 +1,61 @@
+{
+	"name": "ThvCasePresentationLoader",
+
+	"namespace": "Stanford\\CtSurgery\\ThvCasePresentationLoader",
+
+	"description": "This module loads the excel files used to generate THV Case Presentations into the Thv Case Presentation project for future research",
+
+	"documentation": "README.md",
+
+	"authors": [
+		{
+			"name": "Eileen Loh",
+			"email": "eloh@stanford.edu",
+			"institution": "Software Developer"
+		}
+	],
+
+	"enable-every-page-hooks-on-system-pages": false,
+
+	"links": {
+		"project": [
+			{
+				"name": "Load data file",
+				"icon": "gear",
+				"url": "Pages/LoadDataFile.php",
+				"show-header-and-footer": true
+			}
+		],
+		"control-center": [
+
+		]
+	},
+
+	"no-auth-pages": [
+
+	],
+
+	"project-settings": [
+
+	],
+
+	"system-settings": [
+		{
+			"key": "enable-system-debug-logging",
+			"name": "<b>Enable Debug Logging (system-wide)</b><i>(Requires emLogger)</i>",
+			"required": false,
+			"type": "checkbox"
+		}
+	],
+
+	"crons": [
+
+	],
+
+	"compatibility": {
+		"php-version-min": "",
+		"php-version-max": "",
+		"redcap-version-min": "",
+		"redcap-version-max": ""
+	}
+}
