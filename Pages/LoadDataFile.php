@@ -55,7 +55,6 @@ for ($fileindex = 0; $fileindex < count($_FILES['uploads']['name']); $fileindex+
     if (isset($_FILES['uploads']['tmp_name'][$fileindex])) {
         $filetype = $_FILES['uploads']['type'][$fileindex];
         $tmpName = $_FILES['uploads']['tmp_name'][$fileindex];
-
         // for excel spreadsheets, we need to read the data on each sheet
         if (contains($filetype,"spreadsheetml")) {
             $data = [];
@@ -384,8 +383,13 @@ for ($fileindex = 0; $fileindex < count($_FILES['uploads']['name']); $fileindex+
                 if (empty($duplicate)) {
                     //echo json_encode(array($data));
                     $return = REDCap::saveData($pid, 'json', json_encode(array($data)));
-                    echo 'Saved THV presentation for ' . $data['mrn'] . ' on ' .$data['proposed_date'] . '<br/>';
-
+                    if (empty($return['errors'])) {
+                        echo 'Saved THV presentation for ' . $data['mrn'] . ' on ' . $data['proposed_date'] . '<br/>';
+                    } else {
+                        echo 'Error saving ' . $data['mrn']. ': ';
+                        print_r($return['errors']);
+                        echo '<br/>';
+                    }
                 } else {
                     echo $data['mrn'] . ' on ' .$data['proposed_date']. 'record already exists in project' . '<br/>';
                 }
@@ -585,16 +589,16 @@ function parse_note($note, $data) {
     if (contains(strtolower($note), 'caucas')) {
         $data['race'] = 1;
     }  else if (contains(strtolower($note), 'asian')) {
-        $data['race'] = 3;
+        $data['race'] = 4;
     } else if (contains(strtolower($note), 'fiji') || contains(strtolower($note), 'pacific isl')
         || contains(strtolower($note), 'tongan')) {
-        $data['race'] = 4;
+        $data['race'] = 5;
     } // put this one last since sometimes aortic aneurysm is abbrev AA
     else if (contains(strtolower($note), 'african') ||contains($note, 'AA')) {
-        $data['race'] = 2;
+        $data['race'] = 3;
     }
     if (contains(strtolower($note), 'hispanic')|contains(strtolower($note), 'latino')) {
-        $data['ethnicity'] = 1;
+        $data['race'] = 2;
     }
     return $data;
 }
