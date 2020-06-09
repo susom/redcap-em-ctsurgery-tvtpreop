@@ -10,7 +10,12 @@
 	"authors": [
 		{
 			"name": "Eileen Loh",
-			"email": "eloh@stanford.edu",
+			"email": "eloh@stanfordhealthcare.org",
+			"institution": "Software Developer"
+		},
+		{
+			"name": "Ihab Zeedia",
+			"email": "IZeedia@stanfordhealthcare.org",
 			"institution": "Software Developer"
 		}
 	],
