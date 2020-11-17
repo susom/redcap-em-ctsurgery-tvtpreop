@@ -41,7 +41,12 @@
 	],
 
 	"project-settings": [
-
+      {
+        "key": "enable-project-debug-logging",
+        "name": "<b>Enable Debug Logging</b> <i>(Requires emLogger)</i>",
+        "required": false,
+        "type": "checkbox"
+      }
 	],
 
 	"system-settings": [

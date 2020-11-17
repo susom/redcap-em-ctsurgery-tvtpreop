@@ -315,13 +315,14 @@ for ($fileindex = 0; $fileindex < count($_FILES['uploads']['name']); $fileindex+
                         contains($row[1],'Perimeter')) {
                         $data['an_perimeter'] = strip_units($row[2]);
                     } else if (contains($row[0],'Surgical Risk')){
-                        if (contains($row[1],'Intermediate')) {
+                        if (contains($row[1],'Intermediate') || contains($row[1],'IR')) {
                             $data['surgical_risk'] = 1;
-                        } else if (contains($row[1],'Minor') || contains($row[1],'Low Risk')) {
+                        } else if (contains($row[1],'Minor') || contains($row[1],'Low Risk')
+                            || contains($row[1],'LR')) {
                             $data['surgical_risk'] = 0;
-                        } else if (contains($row[1],'High Risk')) {
+                        } else if (contains($row[1],'High Risk') || contains($row[1],'HR')) {
                             $data['surgical_risk'] = 2;
-                        } else if (contains($row[1],'Extreme')) {
+                        } else if (contains($row[1],'Extreme') || contains($row[1],'ER')) {
                             $data['surgical_risk'] = 3;
                         } else if (contains(strtolower($row[1]),'technically inoperable')) {
                             $data['surgical_risk'] = 4;

@@ -3,9 +3,6 @@ namespace Stanford\CtSurgery\ThvCasePresentationLoader;
 
 /** @var \Stanford\CtSurgery\ThvCasePresentationLoader\ThvCasePresentationLoader $this */
 
-
-
-
 /**
  * This trait can be used with External Modules to enable the Stanford emLogger module
  *
